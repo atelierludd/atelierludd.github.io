@@ -1,0 +1,244 @@
+/* ========================= */
+/* FONTS                     */
+/* ========================= */
+@font-face {
+    font-family: 'adelphe';
+    src: url('FONT/Adelphe-FructidorItalic.otf') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'herthey';
+    src: url('FONT/BBB-Herthey-Futural-40.otf') format('woff');
+    font-weight: thin;
+    font-style: serif;
+}
+
+@font-face {
+    font-family: 'Ludd';
+    src: url('FONT/LUDDS.ttf') format('truetype');
+}
+
+/* ========================= */
+/* RESET                     */
+/* ========================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Ludd', 'adelphe', Georgia, serif;
+    background: #fff;
+}
+
+/* ========================= */
+/* MENU FIXE                 */
+/* ========================= */
+.fixed-layer {
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    pointer-events: none;
+}
+.text-blocks {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.bloc {
+    position: fixed;
+    padding: 20px;
+    pointer-events: auto;
+    cursor: pointer;
+}
+.bloc:nth-child(1) { top: 20px; left: 20px; }
+
+.svg-btn {
+    position: relative;
+    display: inline-block;
+    width: 500px;
+}
+.svg-btn img { width: 100%; display: block; }
+.svg-btn .svg-hover {
+    position: absolute;
+    top: 0; left: 0;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+}
+.svg-btn:hover .svg-hover  { opacity: 1; }
+.svg-btn:hover .svg-default { opacity: 0; }
+
+
+/* ========================= */
+/* GRILLE QUINCONCE          */
+/* ========================= */
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    padding: 5px;
+    padding-top: 160px;
+    width: 100%;
+}
+
+/* ========================= */
+/* CELLULES — BASE           */
+/* ========================= */
+.cell {
+    min-height: 320px;
+}
+
+.cell-blank {
+    background: #fff;
+}
+
+
+
+
+/* ========================= */
+/* GALERIE CLIQUABLE         */
+/* ========================= */
+.cell-img {
+    overflow: hidden;
+    background: #111;
+    position: relative;
+}
+
+.gallery-single {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+}
+
+.gallery-single img {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease, opacity 0.15s ease;
+}
+
+.gallery-single img.hidden {
+    display: none;
+}
+
+/* Zoom au hover */
+.gallery-single:hover img:not(.hidden) {
+    transform: scale(1.06);
+}
+
+/* Compteur 1/3 */
+.counter {
+    position: absolute;
+    bottom: 10px;
+    right: 12px;
+    font-family: 'Ludd', 'adelphe', Georgia, serif;
+    font-size: 0.8rem;
+    color: #fff;
+    background: rgba(0,0,0,0.45);
+    padding: 2px 7px;
+    border-radius: 20px;
+    pointer-events: none;
+    letter-spacing: 0.05em;
+}
+
+/* Curseur → indique qu'on peut cliquer */
+.gallery-single::after {
+    content: ']';
+    font-family: 'Ludd';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    color: rgba(255,255,255,0);
+    transition: color 0.2s ease;
+    pointer-events: none;
+}
+.gallery-single:hover::after {
+    color: rgba(255,255,255,0.6);
+}
+
+
+/* ========================= */
+/* BLOCS TEXTE RICH          */
+/* ========================= */
+.cell-text {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid, white;
+}
+
+/* Barre d'outils B / I / U */
+.text-toolbar {
+    display: flex;
+    gap: 0;
+    border-bottom: 3px solid #111;
+    flex-shrink: 0;
+}
+
+/* Zone de texte éditable */
+.richtext {
+    flex: 1;
+    padding: 22px 20px;
+    font-family: 'herthey', 'Ludd', Georgia, serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #111;
+    outline: none;
+    min-height: 280px;
+    background: #fff;
+}
+
+h4 {
+    font-size: 1rem;
+    font-family:'herthey', Georgia, serif;
+}
+
+p {
+    font-size: 1rem;
+    font-family: 'adelphe', 'herthey', Georgia, serif;
+}
+
+b {
+    font-size: 2rem;
+    font-family:'Ludd', Georgia, serif;
+}
+
+
+.richtext:focus {
+    background: #fafafa;
+}
+
+.richtext p {
+    margin-bottom: 0.3em;
+}
+
+
+/* ========================= */
+/* RESPONSIVE                */
+/* ========================= */
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        padding-top: 100px;
+    }
+    .cell-blank { display: none; }
+    .svg-btn { width: 260px; }
+}
+
+@media (max-width: 560px) {
+    .container {
+        grid-template-columns: 3fr;
+        padding-top: 80px;
+    }
+    .svg-btn { width: 2fr; }
+    .cell { min-height: 240px; }
+    .gallery-single img { min-height: 240px; }
+}

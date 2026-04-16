@@ -1,0 +1,148 @@
+/* ========================= */
+/* RESET */
+/* ========================= */
+@font-face {
+    font-family: 'adelphe';
+    src: url('fonts/Adelphe-GerminalBoldItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: adelphe, sans-serif;
+    overflow-x: hidden;
+    background: black;   
+}
+
+.my-cursor {
+    cursor: url(./IMG/vis.png), auto;   
+}
+
+/* ========================= */
+/* IMAGES QUI DEFILENT */
+/* ========================= */
+.scene {
+    position: relative;
+}
+
+.scroll-container {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+}
+
+.scroll-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ========================= */
+/* CALQUE FIXE AU DESSUS */
+/* ========================= */
+.fixed-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* ========================= */
+/* BOITES MENU PNG */
+/* ========================= */
+.text-blocks {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.bloc {
+    position: fixed;
+    padding: 20px;
+    pointer-events: auto;
+    cursor: url(IMG/vis.png), auto;
+}
+
+/* Positions des 3 coins */
+.bloc:nth-child(1) { bottom: 20px; left: 20px;  }
+
+/* ========================= */
+/* BOUTONS PNG AVEC HOVER */
+/* ========================= */
+.svg-btn {
+    position: relative;
+    display: inline-block;
+    width: 500px;
+}
+
+.svg-btn img {
+    width: 100%;
+    display: block;
+}
+
+/* Image hover cachée par défaut */
+.svg-btn .svg-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+}
+
+/* Au hover : swap */
+.svg-btn:hover .svg-hover {
+    opacity: 1;
+}
+
+.svg-btn:hover .svg-default {
+    opacity: 0;
+}
+
+/* ========================= */
+/* CENTRE SVG */
+/* ========================= */
+.center {
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+}
+
+.svg-rotate {
+    width: 55vmin;
+    height: 55vmin;
+    position: relative;
+    z-index: 5;
+    overflow: visible;
+}
+
+.svg-rotate path {
+    fill: none;
+    stroke: white;
+    animation: pulseStroke 16s ease-in-out infinite;
+}
+
+@keyframes pulseStroke {
+    0%   { stroke-width: 0;   opacity: 1; }
+    50%  { stroke-width: 100; opacity: 1; }
+    100% { stroke-width: 0;   opacity: 1; }
+}
+
+/* ========================= */
+/* RESPONSIVE MOBILE */
+/* ========================= */
+@media (max-width: 768px) {
+    .svg-btn {
+        width: 100px;
+    }
+    .svg-rotate {
+        width: 160px;
+    }
+}

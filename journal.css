@@ -1,0 +1,228 @@
+/* ========================= */
+/* FONTS                     */
+/* ========================= */
+@font-face {
+    font-family: 'adelphe';
+    src: url('fonts/Adelphe-GerminalBoldItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'herthey';
+    src: url('FONT/BBB-Herthey-Futural-40.otf') format('woff');
+    font-weight: thin;
+    font-style: serif;
+}
+
+@font-face {
+    font-family: 'Ludd';
+    src: url('FONT/LUDDS.ttf') format('truetype');
+}
+
+/* ========================= */
+/* RESET                     */
+/* ========================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'herthey', 'adelphe', Georgia, serif;
+    background: black;
+}
+
+/* ========================= */
+/* MENU FIXE                 */
+/* ========================= */
+.fixed-layer {
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    pointer-events: none;
+}
+
+.text-blocks {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.bloc {
+    position: fixed;
+    padding: 20px;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.bloc:nth-child(1) { top: 20px;    right: 20px; }
+
+.svg-btn {
+    position: relative;
+    display: inline-block;
+    width: 500px;
+}
+
+.svg-btn img {
+    width: 100%;
+    display: block;
+}
+
+.svg-btn .svg-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+}
+
+.svg-btn:hover .svg-hover  { opacity: 1; }
+.svg-btn:hover .svg-default { opacity: 0; }
+
+/* ========================= */
+/* GRILLE QUINCONCE          */
+/* ========================= */
+/*
+    Le conteneur est une grille CSS à 3 colonnes.
+    Les cellules s'y placent en flux automatique.
+    L'effet quinconce vient des cell-blank qui
+    décalent l'alignement d'une rangée à l'autre.
+*/
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    padding: 5px;
+    padding-top: 160px; /* espace sous le menu fixe */
+    width: 100%;
+}
+
+/* ========================= */
+/* CELLULES — BASE           */
+/* ========================= */
+.cell {
+    min-height: 300px;
+}
+
+/* Blanc vide — crée le décalage quinconce */
+.cell-blank {
+    background: black;
+}
+
+/* Cellule image */
+.cell-img {
+    overflow: hidden;
+    background: black;
+}
+
+.cell-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+    cursor: zoom-in;
+}
+
+.cell-img img:hover {
+    transform: scale(1.06);
+}
+
+/* Cellule texte */
+.cell-text {
+    display: flex;
+}
+
+.cell-text textarea {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+
+    /* Apparence */
+    border: 3px solid #111;
+    background: #fff;
+    padding: 28px 24px;
+    color: #111;
+
+    /* Typo */
+    font-family:'herthey', 'adelphe', Georgia, serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+
+    /* Comportement */
+    resize: none;
+    overflow: hidden;
+    outline: none;
+    cursor: default;
+    -webkit-user-select: none;
+    user-select: none;
+    overflow-y:scroll;
+}
+
+.cell-text textarea:focus {
+    background: #f7f7f7;
+}
+
+
+/* ========================= */
+/* RESPONSIVE                */
+/* ========================= */
+
+/* Tablette : 2 colonnes, les blancs disparaissent */
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        padding-top: 100px;
+    }
+
+    .cell-blank {
+        display: none;
+    }
+
+    .svg-btn {
+        width: 280px;
+    }
+}
+
+textarea {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+textarea {
+  padding: 10px;
+  max-width: 100%;
+  line-height: 1.5;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  box-shadow: 1px 1px 1px #999999;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+
+/* Mobile : 1 colonne */
+@media (max-width: 560px) {
+    .container {
+        grid-template-columns: 1fr;
+        padding-top: 80px;
+    }
+
+    .svg-btn {
+        width: 180px;
+    }
+
+    .cell {
+        min-height: 220px;
+    }
+
+    .cell-text textarea {
+        min-height: 220px;
+    }
+}
