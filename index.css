@@ -20,9 +20,23 @@ body {
     background: transparent;   
 }
 
-.my-cursor {
-    cursor: url(./IMG/vis.png), auto;   
+/* Curseurs personnalisés par direction */
+/* .my-cursor{
+    cursor: url(./IMG/vis.png) 34 0, pointer;
+} */
+    .my-cursor-nord-ouest {
+    cursor: url(./IMG/vis_nord_ouest.png) 100 100, pointer;
+} /*
+.my-cursor-nord-est {
+    cursor: url(./IMG/vis_nord_est.png) 10 100, pointer;
+ }
+.my-cursor-sud-est {
+    cursor: url(./IMG/vis_sud_est.png) 0 0, pointer;
 }
+
+.my-cursor-sud-ouest {
+    cursor: url(./IMG/vis_sud_ouest.png) 100 10, pointer;
+} */
 
 /* ========================= */
 /* IMAGES QUI DEFILENT */
@@ -49,11 +63,11 @@ body {
 .fixed-layer {
     position: fixed;
     inset: 0;
-    pointer-events: none;
+    pointer-events: auto;
 }
 
 /* ========================= */
-/* BOITES MENU PNG */
+/* BOITES MENU webp */
 /* ========================= */
 .text-blocks {
     width: 100%;
@@ -65,7 +79,6 @@ body {
     position: fixed;
     padding: 20px;
     pointer-events: auto;
-    cursor: pointer;
 }
 
 /* Positions des 3 coins */

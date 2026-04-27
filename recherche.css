@@ -20,9 +20,6 @@ body {
     background: black;   
 }
 
-.my-cursor {
-    cursor: url(./IMG/vis.png), auto;   
-}
 
 /* ========================= */
 /* IMAGES QUI DEFILENT */
@@ -53,7 +50,7 @@ body {
 }
 
 /* ========================= */
-/* BOITES MENU PNG */
+/* BOITES MENU webp */
 /* ========================= */
 .text-blocks {
     width: 100%;
@@ -65,14 +62,14 @@ body {
     position: fixed;
     padding: 20px;
     pointer-events: auto;
-    cursor: url(IMG/vis.png), auto;
+    cursor: url(IMG/vis.jpg), auto;
 }
 
 /* Positions des 3 coins */
 .bloc:nth-child(1) { bottom: 20px; left: 20px;  }
 
 /* ========================= */
-/* BOUTONS PNG AVEC HOVER */
+/* BOUTONS webp AVEC HOVER */
 /* ========================= */
 .svg-btn {
     position: relative;
