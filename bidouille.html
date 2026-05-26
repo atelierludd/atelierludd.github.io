@@ -60,7 +60,7 @@
         <div class="cell cell-img">
             <div class="gallery-single">
                    <img src="IMG/BIDOUILLE/vrrr_clang2.png" alt="3D a 2D" loading="lazy"> 
-                   <img src="IMG/BIDOUILLE/vrrr_clang1  .png" alt="3D a 2D" class="hidden">
+                   <img src="IMG/BIDOUILLE/vrrr_clang1.png" alt="3D a 2D" class="hidden">
                 <span class="counter"></span>
             </div>
         </div>
@@ -150,7 +150,8 @@
                 <br>
                 <br>
                 <br>
-                <p><b>†</b></p>
+                <button class="sound-btn" onclick="toggleSound(this,'audio-qc5')" data-playing="0">†</button>
+                <audio id="audio-qc5" src="SON/QC5_3.mp3"></audio>
             </div>
         </div>
 
@@ -163,7 +164,8 @@
                 <br>
                 <br>
                 <br>
-                <p><b>†</b></p>
+                <button class="sound-btn" onclick="toggleSound(this,'audio-3d2d')" data-playing="0">†</button>
+                <audio id="audio-3d2d" src="SON/IMPRIMANTE3D.mp3"></audio>
             </div>
         </div>
         <div class="cell cell-img">
@@ -322,6 +324,25 @@
     </div>
 
     <script>
+        /* ── BOUTONS SON ──────────────────────────────────────── */
+        function toggleSound(btn, audioId) {
+            const audio = document.getElementById(audioId);
+            if (btn.dataset.playing === '1') {
+                audio.pause();
+                audio.currentTime = 0;
+                btn.dataset.playing = '0';
+                btn.style.color = '';
+            } else {
+                btn.dataset.playing = '1';
+                btn.style.color = '#0800ff';
+                audio.play();
+                audio.onended = function() {
+                    btn.dataset.playing = '0';
+                    btn.style.color = '';
+                };
+            }
+        }
+
         /* ── GALERIE CLIQUABLE + SWIPE MOBILE ───────────────── */
         document.querySelectorAll('.gallery-single').forEach(gallery => {
             const imgs   = gallery.querySelectorAll('img');
