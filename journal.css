@@ -52,12 +52,12 @@ body {
 
 .bloc {
     position: fixed;
-    padding: 20px;
+    padding: 0;
     pointer-events: auto;
     cursor: pointer;
 }
 
-.bloc:nth-child(1) { top: 20px;    right: 20px; }
+.bloc:nth-child(1) { top: 12px;    right: 12px; }
 
 .svg-btn {
     position: relative;
@@ -180,9 +180,10 @@ body {
         display: none;
     }
 
-    .svg-btn {
-        width: 280px;
-    }
+}
+
+@media (max-width: 768px) {
+    .svg-btn { width: 200px; }
 }
 
 textarea {
@@ -212,15 +213,19 @@ label {
         padding-top: 80px;
     }
 
-    .svg-btn {
-        width: 180px;
-    }
+    .svg-btn { width: 200px; }
 
     .cell {
-        min-height: 220px;
+        min-height: 200px;
     }
 
     .cell-text textarea {
-        min-height: 220px;
+        min-height: 200px;
     }
+}
+
+/* Paysage mobile : hauteur réduite */
+@media (max-height: 500px) {
+    .svg-btn { width: 150px; }
+    .container { padding-top: 60px; }
 }

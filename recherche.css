@@ -60,13 +60,13 @@ body {
 
 .bloc {
     position: fixed;
-    padding: 20px;
+    padding: 0;
     pointer-events: auto;
     cursor: url(IMG/vis.jpg), auto;
 }
 
 /* Positions des 3 coins */
-.bloc:nth-child(1) { bottom: 20px; left: 20px;  }
+.bloc:nth-child(1) { bottom: 12px; left: 12px;  }
 
 /* ========================= */
 /* BOUTONS webp AVEC HOVER */
@@ -137,9 +137,15 @@ body {
 /* ========================= */
 @media (max-width: 768px) {
     .svg-btn {
-        width: 100px;
+        width: 200px;
     }
     .svg-rotate {
         width: 160px;
     }
+}
+
+/* Paysage mobile : hauteur réduite */
+@media (max-height: 500px) {
+    .svg-btn { width: 150px; }
+    .svg-rotate { width: 120px; }
 }
