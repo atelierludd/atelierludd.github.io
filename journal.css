@@ -224,7 +224,7 @@ label {
     }
 }
 
-/* Paysage mobile : hauteur réduite */
+/*mode paysage*/
 @media (max-height: 500px) {
     .svg-btn { width: 150px; }
     .container { padding-top: 60px; }

@@ -142,9 +142,13 @@ body {
     .svg-rotate {
         width: 160px;
     }
+    .scroll-img {
+        min-height: 100vw;
+        object-fit: cover;
+    }
 }
 
-/* Paysage mobile : hauteur réduite */
+/*mode paysage*/
 @media (max-height: 500px) {
     .svg-btn { width: 150px; }
     .svg-rotate { width: 120px; }
