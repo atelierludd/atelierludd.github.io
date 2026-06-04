@@ -20,6 +20,26 @@
     src: url('FONT/LUDDS.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Interlope';
+    src: url('FONT/Interlope-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'AdelpheTrouble';
+    src: url('FONT/Adelphe-Trouble-GerminalRegular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TribaliumNeue';
+    src: url('FONT/TribaliumNeue-Poster.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'SnellRoundhand';
+    src: url('FONT/SnellRoundhand.ttc') format('truetype');
+}
+
 /* ========================= */
 /* RESET                     */
 /* ========================= */
@@ -85,7 +105,7 @@ body {
     flex-direction: column;
     gap: 5px;
     padding: 5px;
-    padding-top: 160px;
+    padding-top: 30px;
     width: 100%;
 }
 
@@ -169,8 +189,6 @@ body {
     flex: 1;
     padding: 22px 20px;
     position: relative;
-    font-family: 'herthey', 'Ludd', Georgia, serif;
-    font-size: 1rem;
     line-height: 1.7;
     color: #111;
     outline: none;
@@ -178,19 +196,38 @@ body {
     background: #fff;
 }
 
-h4 {
-    font-size: 1rem;
-    font-family: 'herthey', Georgia, serif;
-}
-
 p {
-    font-size: 1rem;
-    font-family: 'adelphe', 'herthey', Georgia, serif;
+    font-size: 0.9rem;
+    font-family:'herthey', Georgia, serif;
+       letter-spacing: -0.05em;
 }
 
 b {
     font-size: 2rem;
     font-family: 'Ludd', Georgia, serif;
+}
+
+.t1 {
+    font-family: 'Interlope', Georgia, serif;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.t2 {
+    font-family: 'AdelpheTrouble', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.t3 {
+    font-family: 'TribaliumNeue', Georgia, serif;
+    font-size: 1.2rem;
+    letter-spacing: -0.03em;
+}
+
+.quote-text {
+    font-family: 'Ludd', Georgia, serif;
+    font-size: 1.2rem;
 }
 
 .richtext p {
@@ -209,6 +246,32 @@ b {
     text-shadow: -1px -1px 0 #0800ff, 1px -1px 0 #0800ff,
                  -1px  1px 0 #0800ff, 1px  1px 0 #0800ff;
     outline: 2px dotted #0800ff;
+}
+
+/* ========================= */
+/* BOUTONS NOTICE            */
+/* ========================= */
+.notice-links {
+    text-align: end;
+    padding-right: 32px;
+    margin-top: 6px;
+}
+
+.notice-btn {
+    display: inline-block;
+    color: #0800ff;
+    text-decoration: underline;
+    font-family: 'herthey', Georgia, serif;
+    font-size: 0.75rem;
+    margin-left: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+}
+
+.notice-btn:hover {
+    opacity: 0.6;
 }
 
 /* ========================= */
@@ -244,7 +307,7 @@ b {
 /* RESPONSIVE                */
 /* ========================= */
 @media (max-width: 900px) {
-    .container { padding-top: 100px; }
+    .container { padding-top: 20px; }
     .section-title { margin-top: 110px; }
 }
 
@@ -254,7 +317,7 @@ b {
 
 @media (max-width: 560px) {
     .container {
-        padding-top: 70px;
+        padding-top: 20px;
         gap: 0;
     }
     .pair {
@@ -288,11 +351,15 @@ b {
         bottom: 10px;
         right: 14px;
     }
+
+    .notice-links {
+        padding-right: 14px;
+    }
 }
 
 /*mode paysage*/
 @media (max-height: 500px) {
     .svg-btn { width: 150px; }
-    .container { padding-top: 60px; }
+    .container { padding-top: 20px; }
     .section-title { margin-top: 70px; }
 }
