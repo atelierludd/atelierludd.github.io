@@ -197,9 +197,14 @@ body {
 }
 
 p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-family:'herthey', Georgia, serif;
        letter-spacing: -0.05em;
+}
+
+p:not([class]) {
+    margin-bottom: -5px;
+    
 }
 
 b {
@@ -209,8 +214,9 @@ b {
 
 .t1 {
     font-family: 'Interlope', Georgia, serif;
-    font-size: 4rem;
+    font-size: clamp(1rem, 8vw, 4rem);
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .t2 {
@@ -230,9 +236,6 @@ b {
     font-size: 1.2rem;
 }
 
-.richtext p {
-    margin-bottom: 0.3em;
-}
 
 /* ========================= */
 /* TITRE SECTION BLEU        */
@@ -261,8 +264,8 @@ b {
     display: inline-block;
     color: #0800ff;
     text-decoration: underline;
-    font-family: 'herthey', Georgia, serif;
-    font-size: 0.75rem;
+    font-family: 'Ludd', Georgia, serif;
+    font-size: 1.15rem;
     margin-left: 14px;
     background: none;
     border: none;
@@ -272,6 +275,7 @@ b {
 
 .notice-btn:hover {
     opacity: 0.6;
+    cursor: url(./IMG/vis_nord_ouest.png) 100 100, pointer;
 }
 
 /* ========================= */

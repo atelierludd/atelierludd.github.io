@@ -8,6 +8,13 @@
     font-style: italic;
 }
 
+@font-face {
+    font-family: 'herthey';
+    src: url('FONT/BBB-Herthey-Futural-40.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -151,6 +158,40 @@ body {
     0%   { stroke-width: 0;   opacity: 1; }
     50%  { stroke-width: 100; opacity: 1; }
     100% { stroke-width: 0;   opacity: 1; }
+}
+/* ========================= */
+/* BANDEAU NOMS DÉFILANTS */
+/* ========================= */
+.name-marquee {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    background: #000;
+    pointer-events: none;
+}
+
+.name-marquee-track {
+    display: inline-block;
+    animation: marquee-scroll 70s linear infinite;
+    font-family: 'herthey', sans-serif;
+    font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+    letter-spacing: 0.08em;
+    color: #fff;
+}
+
+.name-marquee-track span {
+    padding: 0 0.6em;
+}
+
+.name-marquee-track .sep {
+    padding: 0;
+    opacity: 0.5;
+}
+
+@keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
 }
 
 /* ========================= */

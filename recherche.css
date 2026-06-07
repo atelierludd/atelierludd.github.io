@@ -8,6 +8,11 @@
     font-style: italic;
 }
 
+@font-face {
+    font-family: 'Ludd';
+    src: url('FONT/LUDDS.ttf') format('truetype');
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -152,4 +157,80 @@ body {
 @media (max-height: 500px) {
     .svg-btn { width: 150px; }
     .svg-rotate { width: 120px; }
+}
+
+/* ========================= */
+/* SLIDER PHOTOS MEMOIRE */
+/* ========================= */
+.slider-scene {
+    background: black;
+}
+
+.slider-box {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.4s ease;
+    will-change: transform;
+}
+
+.slider-img {
+    min-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    color: grey;
+    border: none;
+    font-family: 'Ludd', sans-serif;
+    font-size: 2rem;
+    padding: 0.4em 0.7em;
+    cursor: pointer;
+    z-index: 10;
+    line-height: 1;
+}
+
+.slider-prev { left: 0; transform: translateY(-50%) scaleX(-1); }
+.slider-next { right: 0; }
+
+.slider-dots {
+    position: absolute;
+    bottom: 12px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    z-index: 10;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dot.active {
+    background: white;
+}
+
+@media (max-width: 768px) {
+    .slider-btn {
+        font-size: 1.3rem;
+        padding: 0.3em 0.5em;
+    }
 }

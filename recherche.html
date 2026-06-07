@@ -22,6 +22,14 @@
         <div class="scene">
             <div class="scroll-container">
                 <section class="scroll-container">
+                    <img src="IMG/recherche/recherche_site.jpg" class="scroll-img" loading="lazy">
+                </section>
+            </div>
+        </div>
+
+        <div class="scene">
+            <div class="scroll-container">
+                <section class="scroll-container">
                     <img src="IMG/recherche/3recherche_snails1.jpg" class="scroll-img" loading="lazy"> 
                 </section>
             </div> 
@@ -76,14 +84,35 @@
             </div> 
         </div>
 
+        <div class="scene slider-scene">
+            <div class="slider-box">
+                <div class="slider-track">
+                    <img src="IMG/recherche/photo_memoire1.webp" class="slider-img" loading="lazy">
+                    <img src="IMG/recherche/photo_memoire2.webp" class="slider-img" loading="lazy">
+                    <img src="IMG/recherche/photo_memoire3.webp" class="slider-img" loading="lazy">
+                    <img src="IMG/recherche/photo_memoire4.webp" class="slider-img" loading="lazy">
+                    <img src="IMG/recherche/photo_memoire5.webp" class="slider-img" loading="lazy">
+                    <img src="IMG/recherche/photo_memoire6.webp" class="slider-img" loading="lazy">
+                    <img src="IMG/recherche/photo_memoire7.webp" class="slider-img" loading="lazy">
+                    <img src="IMG/recherche/photo_memoire8.webp" class="slider-img" loading="lazy">
+                    <img src="IMG/recherche/photo_memoire9.webp" class="slider-img" loading="lazy">
+                    <img src="IMG/recherche/photo_memoire10.webp" class="slider-img" loading="lazy">
+                    <img src="IMG/recherche/photo_memoire11.webp" class="slider-img" loading="lazy">
+                    <img src="IMG/recherche/photo_memoire12.webp" class="slider-img" loading="lazy">
+                </div>
+                <button class="slider-btn slider-prev" aria-label="précédent">]</button>
+                <button class="slider-btn slider-next" aria-label="suivant">]</button>
+                <div class="slider-dots" id="sliderDots"></div>
+            </div>
+        </div>
+
         <div class="scene">
             <div class="scroll-container">
                 <section class="scroll-container">
-                    <img src="IMG/recherche/2bisPENTALOBE-INSTA-HD.gif" class="scroll-img" loading="lazy"> 
+                    <img src="IMG/recherche/2bisPENTALOBE-INSTA-HD.gif" class="scroll-img" loading="lazy">
                 </section>
-            </div> 
+            </div>
         </div>
-        
 
         <div class="fixed-layer">
             <div class="text-blocks">
@@ -100,5 +129,34 @@
 
     </main>
 
+<script>
+    const track = document.querySelector('.slider-track');
+    const imgs = track.querySelectorAll('.slider-img');
+    const dotsContainer = document.getElementById('sliderDots');
+    let current = 0;
+
+    imgs.forEach((_, i) => {
+        const d = document.createElement('span');
+        d.className = 'dot' + (i === 0 ? ' active' : '');
+        d.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(d);
+    });
+
+    function goTo(n) {
+        current = (n + imgs.length) % imgs.length;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dotsContainer.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    document.querySelector('.slider-prev').addEventListener('click', () => goTo(current - 1));
+    document.querySelector('.slider-next').addEventListener('click', () => goTo(current + 1));
+
+    let startX = 0;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+    track.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 40) goTo(dx < 0 ? current + 1 : current - 1);
+    });
+</script>
 </body>
 </html>
