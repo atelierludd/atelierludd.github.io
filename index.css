@@ -3,7 +3,7 @@
 /* ========================= */
 @font-face {
     font-family: 'adelphe';
-    src: url('fonts/Adelphe-GerminalBoldItalic.woff') format('woff');
+    src: url('FONT/Adelphe-FructidorRegular.otf') format('woff');
     font-weight: normal;
     font-style: italic;
 }
@@ -71,6 +71,7 @@ body {
     position: fixed;
     inset: 0;
     pointer-events: auto;
+    z-index: 100;
 }
 
 /* ========================= */
@@ -162,6 +163,11 @@ body {
 /* ========================= */
 /* BANDEAU NOMS DÉFILANTS */
 /* ========================= */
+.marquee-spacer {
+    height: 45vh;
+    background: #000;
+}
+
 .name-marquee {
     position: relative;
     width: 100%;
@@ -171,13 +177,24 @@ body {
     pointer-events: none;
 }
 
+.name-marquee:last-of-type {
+    padding-bottom: 47.5vh;
+}
+
 .name-marquee-track {
     display: inline-block;
     animation: marquee-scroll 70s linear infinite;
-    font-family: 'herthey', sans-serif;
-    font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+    font-family:'adelphe', 'herthey', sans-serif;
     letter-spacing: 0.08em;
     color: #fff;
+}
+
+.name-marquee-track--large {
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+}
+
+.name-marquee-track--small {
+    font-size: clamp(0.85rem, 1.5vw, 1.1rem);
 }
 
 .name-marquee-track span {
