@@ -11,12 +11,20 @@
 
     <main>
 
+        <div class="typewriter-block" data-text="Mémoire de Lucie, Panne Motrice, lu et traduit graphiquement par Yann.">
+            <span class="typewriter-text"></span>
+        </div>
+
         <div class="scene">
             <div class="scroll-container">
                 <section class="scroll-container">
-                    <img src="IMG/recherche/4recherche_lucie.jpg" class="scroll-img" loading="lazy"> 
+                    <img src="IMG/recherche/4recherche_lucie.jpg" class="scroll-img" loading="lazy">
                 </section>
-            </div> 
+            </div>
+        </div>
+
+        <div class="typewriter-block" data-text="Mémoire de Yann, Nuée invisible, lu et traduit graphiquement par Angèle.">
+            <span class="typewriter-text"></span>
         </div>
 
         <div class="scene">
@@ -27,46 +35,24 @@
             </div>
         </div>
 
-        <div class="scene">
-            <div class="scroll-container">
-                <section class="scroll-container">
-                    <img src="IMG/recherche/3recherche_snails1.jpg" class="scroll-img" loading="lazy"> 
-                </section>
-            </div> 
+        <div class="typewriter-block" data-text="DESSINE-MOI UN ESCARGOT : Fanzine de recherche plastique et théorique autour de la figure de l'escargot et de ce qu'elle représente pour nous ! Citation de Marie Verdeil et Olivier Hamant. Imprimé en avril 2026 avec la risographie de l'école Estienne, Paris puis réédité en mai 2026 avec la risographie de l'Edulab de l'Hotel Pasteur, Rennes.">
+            <span class="typewriter-text"></span>
         </div>
 
-        <div class="scene">
-            <div class="scroll-container">
-                <section class="scroll-container">
-                    <img src="IMG/recherche/3recherche_snails5.jpg" class="scroll-img" loading="lazy"> 
-                </section>
-            </div> 
+        <div class="scene slider-scene">
+            <div class="slider-box slider-snails">
+                <div class="slider-track">
+                    <img src="IMG/recherche/3recherche_snails1.jpg" class="slider-img" loading="lazy">
+                    <img src="IMG/recherche/3recherche_snails3.jpg" class="slider-img" loading="lazy">
+                    <img src="IMG/recherche/3recherche_snails4.jpg" class="slider-img" loading="lazy">
+                    <img src="IMG/recherche/3recherche_snails5.jpg" class="slider-img" loading="lazy">
+                    <img src="IMG/recherche/3recherche_snails6.jpg" class="slider-img" loading="lazy">
+                </div>
+                <button class="slider-btn slider-prev" aria-label="précédent">]</button>
+                <button class="slider-btn slider-next" aria-label="suivant">]</button>
+                <div class="slider-dots"></div>
+            </div>
         </div>
-
-        <div class="scene">
-            <div class="scroll-container">
-                <section class="scroll-container">
-                    <img src="IMG/recherche/3recherche_snails4.jpg" class="scroll-img" loading="lazy"> 
-                </section>
-            </div> 
-        </div>
-
-        <div class="scene">
-            <div class="scroll-container">
-                <section class="scroll-container">
-                    <img src="IMG/recherche/3recherche_snails3.jpg" class="scroll-img" loading="lazy"> 
-                </section>
-            </div> 
-        </div>
-
-
-        <div class="scene">
-            <div class="scroll-container">
-                <section class="scroll-container">
-                    <img src="IMG/recherche/3recherche_snails6.jpg" class="scroll-img" loading="lazy"> 
-                </section>
-            </div> 
-        </div>  
 
         <div class="scene">
             <div class="scroll-container">
@@ -84,8 +70,12 @@
             </div> 
         </div>
 
+        <div class="typewriter-block" data-text="NOS MÉMOIRES :&#10;I- Nuées Invisibles [Neb a heuilh ar glav, a gav HUGO]&#10;II- Panne Motrice [S'emparer de la matérialité du numérique]&#10;III- Out-Design In-Process [Bruxelles, Montreuil, Nantes, Paris]">
+            <span class="typewriter-text"></span>
+        </div>
+
         <div class="scene slider-scene">
-            <div class="slider-box">
+            <div class="slider-box slider-memoire">
                 <div class="slider-track">
                     <img src="IMG/recherche/photo_memoire1.webp" class="slider-img" loading="lazy">
                     <img src="IMG/recherche/photo_memoire2.webp" class="slider-img" loading="lazy">
@@ -101,9 +91,19 @@
                 </div>
                 <button class="slider-btn slider-prev" aria-label="précédent">]</button>
                 <button class="slider-btn slider-next" aria-label="suivant">]</button>
-                <div class="slider-dots" id="sliderDots"></div>
+                <div class="slider-dots"></div>
             </div>
         </div>
+
+        <br>
+        <br>        
+        
+        <div class="typewriter-block" data-text="NOTRE MISE EN PAGE : Toustes trois graphistes de formation, nous nous rendons compte des limites, notamment éthiques, des logiciels propriétaires que nous utilisons. Nous nous efforçons d'avoir un processus de travail aligné avec nos valeurs, qui tendent vers des pratiques plurielles, hétérogènes et inclusives. À la recherche d'alternatives. Valoriser le faire ensemble, faire au mieux à sen échelle, avec ce que l'on a et ce qui nous est accessible.">
+            <span class="typewriter-text"></span>
+        </div>
+
+        <br>
+        <br>
 
         <div class="scene">
             <div class="scroll-container">
@@ -129,32 +129,54 @@
     </main>
 
 <script>
-    const track = document.querySelector('.slider-track');
-    const imgs = track.querySelectorAll('.slider-img');
-    const dotsContainer = document.getElementById('sliderDots');
-    let current = 0;
+    /* MACHINE A ECRIRE scroll-scrubbing */
+    var typewriterBlocks = document.querySelectorAll(".typewriter-block");
 
-    imgs.forEach((_, i) => {
-        const d = document.createElement('span');
-        d.className = 'dot' + (i === 0 ? ' active' : '');
-        d.addEventListener('click', () => goTo(i));
-        dotsContainer.appendChild(d);
-    });
-
-    function goTo(n) {
-        current = (n + imgs.length) % imgs.length;
-        track.style.transform = `translateX(-${current * 100}%)`;
-        dotsContainer.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    function updateTypewriters() {
+        var wh = window.innerHeight;
+        typewriterBlocks.forEach(function(block) {
+            var el = block.querySelector(".typewriter-text");
+            var text = block.dataset.text;
+            var rect = block.getBoundingClientRect();
+            var progress = (wh - rect.top) / wh;
+            var chars = Math.max(0, Math.min(text.length, Math.round(progress * text.length)));
+            el.textContent = text.slice(0, chars);
+            el.classList.toggle("done", chars >= text.length);
+        });
     }
 
-    document.querySelector('.slider-prev').addEventListener('click', () => goTo(current - 1));
-    document.querySelector('.slider-next').addEventListener('click', () => goTo(current + 1));
+    window.addEventListener("scroll", updateTypewriters, { passive: true });
+    updateTypewriters();
 
-    let startX = 0;
-    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
-    track.addEventListener('touchend', e => {
-        const dx = e.changedTouches[0].clientX - startX;
-        if (Math.abs(dx) > 40) goTo(dx < 0 ? current + 1 : current - 1);
+    /* ── SLIDERS ─────────────────────────────────────────── */
+    document.querySelectorAll('.slider-box').forEach(box => {
+        const track = box.querySelector('.slider-track');
+        const imgs = track.querySelectorAll('.slider-img');
+        const dotsContainer = box.querySelector('.slider-dots');
+        let current = 0;
+
+        imgs.forEach((_, i) => {
+            const d = document.createElement('span');
+            d.className = 'dot' + (i === 0 ? ' active' : '');
+            d.addEventListener('click', () => goTo(i));
+            dotsContainer.appendChild(d);
+        });
+
+        function goTo(n) {
+            current = (n + imgs.length) % imgs.length;
+            track.style.transform = `translateX(-${current * 100}%)`;
+            dotsContainer.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+        }
+
+        box.querySelector('.slider-prev').addEventListener('click', () => goTo(current - 1));
+        box.querySelector('.slider-next').addEventListener('click', () => goTo(current + 1));
+
+        let startX = 0;
+        track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+        track.addEventListener('touchend', e => {
+            const dx = e.changedTouches[0].clientX - startX;
+            if (Math.abs(dx) > 40) goTo(dx < 0 ? current + 1 : current - 1);
+        });
     });
 </script>
 </body>
