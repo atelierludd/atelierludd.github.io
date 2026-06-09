@@ -15,6 +15,11 @@
     unicode-range: U+0020-005A, U+005C, U+005E-007E;
 }
 
+@font-face {
+    font-family: 'Ludd-full';
+    src: url('FONT/LUDDS.ttf') format('truetype');
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -243,7 +248,7 @@ body {
     background: none;
     color: grey;
     border: none;
-    font-family: 'Ludd', sans-serif;
+    font-family: 'Ludd-full', sans-serif;
     font-size: 2rem;
     padding: 0.4em 0.7em;
     cursor: pointer;
