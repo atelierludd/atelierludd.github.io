@@ -3,14 +3,16 @@
 /* ========================= */
 @font-face {
     font-family: 'adelphe';
-    src: url('fonts/Adelphe-GerminalBoldItalic.woff') format('woff');
+    src: url('FONT/Adelphe-FructidorSemiBold.otf') format('woff');
     font-weight: normal;
     font-style: italic;
+    size-adjust: 140%;
 }
 
 @font-face {
     font-family: 'Ludd';
     src: url('FONT/LUDDS.ttf') format('truetype');
+    unicode-range: U+0020-005A, U+005C, U+005E-007E;
 }
 
 * {
@@ -167,7 +169,7 @@ body {
     background: black;
     padding: 60px 32px 50px;
     color: white;
-    font-family: 'Ludd', sans-serif;
+    font-family: 'Ludd','Adelphe', sans-serif;
     font-size: clamp(1rem, 2.2vw, 1.6rem);
     line-height: 1.7;
 }
